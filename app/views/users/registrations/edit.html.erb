@@ -683,7 +683,7 @@
 												</div>
 												<!--end::Actions-->
 											</form> %>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form', method: :put }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form', method: :put, novalidate: true }, data: { controller: "form", 'form-target': 'form', action: "submit->form#submitForm"}) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
       <div class="card-body border-top p-9">
@@ -745,13 +745,14 @@
             <!--begin::Row-->
             <div class="row">
               <!--begin::Col-->
-              <div class="col-lg-6 fv-row">
-                <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: 'Enter first name', class: 'form-control form-control-lg form-control-solid mb-3 mb-lg-0' %>
+              <div class="col-lg-6 fv-row fv-plugins-icon-container fv-plugins-bootstrap5-row-invalid">
+                <%= f.text_field :first_name, autofocus: true, required: true, autocomplete: "first-name", placeholder: 'Enter first name', class: 'form-control form-control-lg form-control-solid mb-3 mb-lg-0' %>
+                <div class="fv-plugins-message-container invalid-feedback"><div data-field="company" data-validator="notEmpty">Company name is required</div></div>
               </div>
               <!--end::Col-->
               <!--begin::Col-->
               <div class="col-lg-6 fv-row">
-                <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name", placeholder: 'Enter last name', class: 'form-control form-control-lg form-control-solid mb-3 mb-lg-0' %>
+                <%= f.text_field :last_name, autofocus: true, required: true, autocomplete: "last-name", placeholder: 'Enter last name', class: 'form-control form-control-lg form-control-solid mb-3 mb-lg-0' %>
               </div>
               <!--end::Col-->
             </div>
