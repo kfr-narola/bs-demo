@@ -1,0 +1,50 @@
+<%= form_for(resource, as: resource_name, :html => { :class => 'form w-100'}, url: registration_path(resource_name)) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="mb-10 text-center">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3">Create an Account</h1>
+    <!--end::Title-->
+    <!--begin::Link-->
+    <div class="text-gray-400 fw-semibold fs-4">Already have an account?
+      <%= link_to 'Sign in here', new_user_session_path, class: 'link-primary fw-bold' %>
+    </div>
+    <!--end::Link-->
+  </div>
+
+  <div class="row fv-row mb-7">
+    <!--begin::Col-->
+    <div class="col-xl-6">
+      <%= f.label :first_name, class: 'form-label fs-6 fw-bold text-dark' %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: 'Enter first name', class: 'form-control form-control-lg form-control-solid' %>
+    </div>
+    <!--end::Col-->
+    <!--begin::Col-->
+    <div class="col-xl-6">
+      <%= f.label :last_name, class: 'form-label fs-6 fw-bold text-dark' %>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name", placeholder: 'Enter last name', class: 'form-control form-control-lg form-control-solid' %>
+    </div>
+    <!--end::Col-->
+  </div>
+
+  <div class="fv-row mb-10">
+    <%= f.label :email, class: 'form-label fs-6 fw-bold text-dark' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter email', class: 'form-control form-control-lg form-control-solid' %>
+  </div>
+
+  <div class="fv-row mb-10">
+    <%= f.label :password, class: 'form-label fs-6 fw-bold text-dark' %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Enter password', class: 'form-control form-control-lg form-control-solid' %>
+  </div>
+
+  <div class="fv-row mb-10">
+    <%= f.label :password_confirmation, class: 'form-label fs-6 fw-bold text-dark' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Enter confirm password',  class: 'form-control form-control-lg form-control-solid' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btn btn-lg btn-primary w-100 mb-5' %>
+  </div>
+<% end %>
+
+<%#= render "users/shared/links" %>

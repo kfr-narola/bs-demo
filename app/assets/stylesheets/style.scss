@@ -1,0 +1,15 @@
+//
+// Theme style
+//
+@import "./add_font.scss";
+@import 'custom/plugins.scss';
+
+// Initialize
+@import "init";
+
+// Components
+@import "components/components";
+
+// Layout
+@import "layout/base/layout";
+@import "layout/layout";

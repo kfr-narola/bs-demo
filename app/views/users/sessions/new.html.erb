@@ -1,0 +1,37 @@
+<%= form_for(resource, as: resource_name, :html => { :class => 'form w-100'}, url: session_path(resource_name)) do |f| %>
+  <div class="text-center mb-10">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3">Sign In to Saul HTML Free</h1>
+    <!--end::Title-->
+    <!--begin::Link-->
+    <div class="text-gray-400 fw-semibold fs-4">New Here?
+      <%= link_to 'Create an Account', new_user_registration_path, class: 'link-primary fw-bold' %>
+    </div>
+    <!--end::Link-->
+  </div>
+
+  <div class="fv-row mb-10">
+    <%= f.label :email, class: 'form-label fs-6 fw-bold text-dark' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control-lg form-control-solid' %>
+  </div>
+
+  <div class="fv-row mb-10">
+    <%= f.label :password, class: 'form-label fs-6 fw-bold text-dark' %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control form-control-lg form-control-solid' %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="fv-row mb-10">
+      <label class="form-check form-check-custom form-check-solid form-check-inline">
+        <%= f.check_box :remember_me, class: 'form-check-input' %>
+        <%= f.label :remember_me, class: 'form-check-label fw-semibold text-gray-700 fs-6' %>
+      </label>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'btn btn-lg btn-primary w-100 mb-5' %>
+  </div>
+<% end %>
+
+<%#= render "users/shared/links" %>
